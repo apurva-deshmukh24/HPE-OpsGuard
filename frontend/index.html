@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HPE OpsGuard | Infrastructure Monitoring</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <h2>HPE <span>OpsGuard</span></h2>
+                <p>IT Infrastructure</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="nav-heading">WORKSPACE</p>
+
+                <a href="#overview" class="nav-link active">
+                    <span>▦</span> Overview
+                </a>
+
+                <a href="#performance" class="nav-link">
+                    <span>⌁</span> Performance
+                </a>
+
+                <a href="#network" class="nav-link">
+                    <span>◎</span> Network
+                </a>
+
+                <a href="#processes" class="nav-link">
+                    <span>▤</span> Processes
+                </a>
+
+                <a href="#system-health" class="nav-link">
+                    <span>♡</span> System Health
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <span class="online-dot"></span>
+                Monitoring Active
+            </div>
+
+        </aside>
+
+
+        <!-- Main Dashboard -->
+        <main class="main-content">
+
+            <!-- Top Header -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Infrastructure Overview</h1>
+                    <p>Monitor your system performance in real time.</p>
+                </div>
+
+                <div class="topbar-status">
+
+                    <div class="live-status" id="connection-status">
+                        <span class="status-dot" id="connection-dot"></span>
+                        <span id="connection-text">Checking Connection...</span>
+                    </div>
+
+                    <div class="uptime">
+                        System Uptime:
+                        <span id="uptime">00:00:00</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- System Overview -->
+            <section class="welcome" id="overview">
+
+                <div>
+                    <p class="section-label">SYSTEM OVERVIEW</p>
+                    <h2>Your infrastructure at a glance</h2>
+                    <p id="system">Connecting...</p>
+                </div>
+
+                <div class="overview-icon">⌘</div>
+
+            </section>
+
+
+            <!-- System Metrics -->
+            <section class="metrics">
+
+                <div class="card">
+                    <div class="metric-heading">
+                        <h3>CPU Usage</h3>
+                        <span>CPU</span>
+                    </div>
+
+                    <p id="cpu">--%</p>
+
+                    <div class="bar">
+                        <div id="cpu-bar"></div>
+                    </div>
+
+                    <small>Processor utilization</small>
+                </div>
+
+
+                <div class="card">
+                    <div class="metric-heading">
+                        <h3>RAM Usage</h3>
+                        <span>RAM</span>
+                    </div>
+
+                    <p id="ram">--%</p>
+
+                    <div class="bar">
+                        <div id="ram-bar"></div>
+                    </div>
+
+                    <small>Memory utilization</small>
+                </div>
+
+
+                <div class="card">
+                    <div class="metric-heading">
+                        <h3>Disk Usage</h3>
+                        <span>DISK</span>
+                    </div>
+
+                    <p id="disk">--%</p>
+
+                    <div class="bar">
+                        <div id="disk-bar"></div>
+                    </div>
+
+                    <small>Storage utilization</small>
+                </div>
+
+            </section>
+
+
+            <!-- Performance Analytics -->
+            <section class="chart-section" id="performance">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Performance Analytics</h2>
+                        <p>Live system resource usage over time</p>
+                    </div>
+
+                    <span class="live-label">● LIVE</span>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+
+            </section>
+
+
+            <!-- Network Activity -->
+            <section class="network-section" id="network">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Network Activity</h2>
+                        <p>Live network data transfer statistics</p>
+                    </div>
+
+                    <span class="live-label">● LIVE</span>
+                </div>
+
+                <div class="network-cards">
+
+                    <div class="network-card">
+                        <h3>Data Received</h3>
+                        <p id="received">-- MB</p>
+                    </div>
+
+                    <div class="network-card">
+                        <h3>Data Sent</h3>
+                        <p id="sent">-- MB</p>
+                    </div>
+
+                    <div class="network-card">
+                        <h3>Packets Received</h3>
+                        <p id="packets-received">--</p>
+                    </div>
+
+                    <div class="network-card">
+                        <h3>Packets Sent</h3>
+                        <p id="packets-sent">--</p>
+                    </div>
+
+                    <div class="network-card">
+                        <h3>Download Speed</h3>
+                        <p id="download-speed">-- MB/s</p>
+                    </div>
+
+                    <div class="network-card">
+                        <h3>Upload Speed</h3>
+                        <p id="upload-speed">-- MB/s</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Network Speed Chart -->
+            <section class="chart-section">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Network Performance</h2>
+                        <p>Real-time download and upload speeds</p>
+                    </div>
+
+                    <span class="live-label">● LIVE</span>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="networkChart"></canvas>
+                </div>
+
+            </section>
+
+
+            <!-- Running Processes -->
+            <section class="process-section" id="processes">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Running Processes</h2>
+                        <p>Top 10 applications by memory usage</p>
+                    </div>
+                </div>
+
+                <div class="table-container">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Process Name</th>
+                                <th>PID</th>
+                                <th>CPU Usage</th>
+                                <th>Memory Usage</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="process-list">
+                            <tr>
+                                <td colspan="4">Loading processes...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- System Health -->
+            <section class="status" id="system-health">
+
+                <h2>System Health</h2>
+
+                <h3 id="health">Checking...</h3>
+
+                <p id="alert">
+                    Checking system conditions...
+                </p>
+
+                <p id="updated">
+                    Waiting for data...
+                </p>
+
+            </section>
+
+
+            <footer class="dashboard-footer">
+                HPE OpsGuard | Intelligent IT Infrastructure Monitoring
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

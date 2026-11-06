@@ -1,0 +1,612 @@
+
+/* =================================
+   1. GLOBAL STYLES
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: #e8edf5;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =================================
+   2. SIDEBAR
+================================= */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #111c2e;
+    border-right: 1px solid #26364c;
+    padding: 30px 18px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.brand {
+    padding: 0 12px 35px;
+    border-bottom: 1px solid #26364c;
+}
+
+.brand h2 {
+    font-size: 23px;
+    color: #ffffff;
+}
+
+.brand h2 span {
+    color: #42a5f5;
+}
+
+.brand p {
+    color: #8291a5;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.sidebar-nav {
+    margin-top: 35px;
+}
+
+.nav-heading {
+    color: #8291a5;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 0 12px;
+    margin-bottom: 15px;
+}
+
+.nav-link {
+    display: block;
+    color: #aab7c4;
+    text-decoration: none;
+    padding: 14px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-link span {
+    display: inline-block;
+    width: 30px;
+    color: #42a5f5;
+    font-size: 18px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #1c3450;
+    color: #ffffff;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 15px 10px;
+    color: #aab7c4;
+    font-size: 12px;
+    border-top: 1px solid #26364c;
+}
+
+.online-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #42d392;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+
+/* =================================
+   3. MAIN CONTENT
+================================= */
+
+.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 35px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 27px;
+    color: #ffffff;
+}
+
+.topbar p {
+    color: #8291a5;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.topbar-status {
+    background: #172b2b;
+    color: #42d392;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+
+/* =================================
+   4. SYSTEM OVERVIEW
+================================= */
+
+.welcome {
+    background: linear-gradient(110deg, #17365a, #172b43);
+    padding: 30px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #294a6d;
+}
+
+.section-label {
+    color: #72b9f3;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.welcome h2 {
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.welcome p:last-child {
+    color: #aabbd0;
+    font-size: 13px;
+}
+
+.overview-icon {
+    font-size: 45px;
+    color: #72b9f3;
+}
+
+
+/* =================================
+   5. SYSTEM METRIC CARDS
+================================= */
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: #151f31;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #26364c;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover,
+.network-card:hover {
+    transform: translateY(-4px);
+    border-color: #42a5f5;
+}
+
+.metric-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card h3 {
+    color: #aab7c4;
+    font-size: 14px;
+}
+
+.metric-heading span {
+    color: #42a5f5;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.card > p {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 25px 0 18px;
+    color: #ffffff;
+}
+
+.card small {
+    display: block;
+    color: #8291a5;
+    margin-top: 13px;
+}
+
+
+/* =================================
+   6. PROGRESS BARS
+================================= */
+
+.bar {
+    height: 7px;
+    background: #2b3a50;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar div {
+    height: 100%;
+    width: 0%;
+    background: #42a5f5;
+    border-radius: 10px;
+    transition: width 0.5s;
+}
+
+
+/* =================================
+   7. CHART SECTIONS
+================================= */
+
+.chart-section {
+    background: #151f31;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #26364c;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.chart-section h2,
+.network-section h2,
+.process-section h2 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.chart-section > p,
+.section-header p {
+    color: #8291a5;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.live-label {
+    color: #42d392;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+}
+
+
+/* =================================
+   8. NETWORK ACTIVITY
+================================= */
+
+.network-section {
+    background: #151f31;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #26364c;
+}
+
+.network-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.network-card {
+    background: #1c2a40;
+    padding: 22px;
+    border-radius: 10px;
+    border: 1px solid #2a3d57;
+    transition: 0.3s;
+}
+
+.network-card h3 {
+    color: #aab7c4;
+    font-size: 13px;
+}
+
+.network-card p {
+    color: #42a5f5;
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 16px;
+    overflow-wrap: anywhere;
+}
+
+
+/* =================================
+   9. RUNNING PROCESSES
+================================= */
+
+.process-section {
+    background: #151f31;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #26364c;
+    overflow: hidden;
+}
+
+.process-section > p {
+    color: #8291a5;
+    margin-bottom: 20px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 600px;
+}
+
+th,
+td {
+    padding: 16px;
+    border-bottom: 1px solid #2b3a50;
+    font-size: 13px;
+}
+
+th {
+    color: #42a5f5;
+    font-weight: bold;
+}
+
+td {
+    color: #dce5ef;
+}
+
+tbody tr:hover {
+    background: #1c2a40;
+}
+
+
+/* =================================
+   10. SYSTEM HEALTH
+================================= */
+
+.status {
+    background: #151f31;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid #26364c;
+}
+
+.status h2 {
+    font-size: 18px;
+}
+
+#health {
+    margin-top: 18px;
+    font-size: 22px;
+}
+
+#alert {
+    margin-top: 12px;
+    line-height: 1.6;
+    color: #aab7c4;
+    font-size: 13px;
+}
+
+#updated {
+    color: #8291a5;
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.healthy {
+    color: #42d392 !important;
+}
+
+.warning {
+    color: #ffb74d !important;
+}
+
+.critical {
+    color: #ff5252 !important;
+}
+
+
+/* =================================
+   11. FOOTER
+================================= */
+
+.dashboard-footer {
+    text-align: center;
+    color: #718096;
+    font-size: 12px;
+    padding: 20px 0;
+    border-top: 1px solid #26364c;
+}
+
+
+/* =================================
+   12. RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+        width: calc(100% - 210px);
+        padding: 25px;
+    }
+
+    .metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .network-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .dashboard {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        padding: 18px;
+    }
+
+    .brand {
+        padding-bottom: 15px;
+    }
+
+    .sidebar-nav {
+        margin-top: 18px;
+    }
+
+    .sidebar-nav a {
+        display: inline-block;
+        margin: 3px;
+        padding: 10px;
+    }
+
+    .nav-heading,
+    .sidebar-footer {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 18px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .topbar h1 {
+        font-size: 23px;
+    }
+
+    .metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .network-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome {
+        padding: 22px;
+    }
+
+    .chart-container {
+        height: 280px;
+    }
+}
+/* Live System Status */
+
+.live-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(34, 197, 94, 0.12);
+    color: #22c55e;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
+
+.status-dot {
+    animation: pulse 2s infinite;
+}
+/* System Uptime */
+
+.uptime {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+#uptime {
+    color: #22c55e;
+    font-weight: 600;
+}
