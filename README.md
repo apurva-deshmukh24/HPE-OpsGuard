@@ -1,26 +1,27 @@
 # HPE OpsGuard – Intelligent IT Infrastructure Monitoring
 
-HPE OpsGuard is a Python-based system monitoring dashboard designed to monitor essential computer performance metrics in real time.
-
-The application collects system information and displays it through a web-based dashboard, helping users understand their machine's health and resource utilization.
+HPE OpsGuard is a Python-based system monitoring application that provides real-time insights into computer performance and resource utilization through an interactive web dashboard.
 
 ## 🚀 Features
 
-- **CPU Monitoring:** Tracks current CPU usage.
-- **RAM Monitoring:** Displays memory utilization and total RAM.
-- **Disk Monitoring:** Tracks disk usage.
-- **System Health Dashboard:** Displays system performance metrics.
-- **Real-Time Updates:** Fetches updated system metrics through API requests.
-- **Error Handling:** Handles unsuccessful API responses.
+- **CPU Monitoring:** Tracks real-time CPU utilization.
+- **RAM Monitoring:** Displays memory usage and total available RAM.
+- **Disk Monitoring:** Tracks system disk utilization.
+- **Network Monitoring:** Displays network information and network speed.
+- **Process Monitoring:** Lists currently running system processes.
+- **Performance Dashboard:** Presents system health metrics through an interactive interface.
+- **API Integration:** Uses Flask API endpoints to fetch system data.
+- **Error Handling:** Handles unsuccessful API requests.
 
 ## 🛠️ Technologies Used
 
 - Python
 - Flask
+- psutil
 - HTML5
 - CSS3
 - JavaScript
-- psutil
+- REST API
 
 ## 📂 Project Structure
 
@@ -39,52 +40,62 @@ HPE-OpsGuard/
     └── script.js
 ```
 
-*Note: Adjust the structure above if your actual filenames or folders differ.*
-
 ## ⚙️ Installation & Setup
 
-1. Clone the repository:
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/apurva-deshmukh24/HPE-OpsGuard.git
 ```
 
-2. Navigate to the project folder:
+**2. Navigate to the project directory**
 
 ```bash
 cd HPE-OpsGuard
 ```
 
-3. Create a virtual environment:
+**3. Create a virtual environment**
 
 ```bash
 python -m venv venv
 ```
 
-4. Activate the virtual environment (Windows):
+**4. Activate the environment (Windows)**
 
 ```bash
 venv\Scripts\activate
 ```
 
-5. Install dependencies:
+**5. Install dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-6. Run the application using the appropriate Python entry-point file.
+**6. Run the application**
+
+```bash
+python app.py
+```
+
+**7. Open in your browser**
+
+```text
+http://127.0.0.1:5000/
+```
 
 ## 🎯 Project Objective
 
-The objective of HPE OpsGuard is to provide a simple and user-friendly interface for monitoring computer system performance and understanding infrastructure resource utilization.
+The goal of HPE OpsGuard is to simplify system performance monitoring by providing a centralized dashboard that helps users understand CPU, memory, disk, network and process utilization.
 
 ## 👩‍💻 Developer
 
 **Apurva Deshmukh**
 
-GitHub: https://github.com/apurva-deshmukh24
+B.Tech – Information Technology
+
+GitHub: [apurva-deshmukh24](https://github.com/apurva-deshmukh24)
 
 ---
 
-*Built as a hands-on project to explore Python system monitoring, API integration, and frontend dashboard development.*
+*Developed as a hands-on project to explore Python system monitoring, backend development, API integration and frontend dashboard design.*
